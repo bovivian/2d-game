@@ -1,45 +1,26 @@
-![banner](./docs/img/banner.png)
+# Alys - precision platformer
+This demo is based on the popular game Celeste and incorporates some of its mechanics using the [2D-Essentials](https://github.com/godotessentials/2d-essentials) plugin.
 
-#### About
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
-[![Godot v3.4](https://img.shields.io/badge/Godot-v3.4-blue.svg)](https://github.com/ramaureirac/godot-tactical-rpg/tree/release/godot-v3.4)
-[![Godot v4.0](https://img.shields.io/badge/Godot-v4.0-blue.svg)](https://github.com/ramaureirac/godot-tactical-rpg/tree/release/godot-v4.0)
+![alys_demo](images/alys_demo.gif)
+ - - -
+![alys_demo_2](images/alys_demo_2.gif)
+- - -
+![alys_demo_3](images/alys_demo_3.gif)
+ - - -
 
+## Features
+- A [finite state machine](https://godot-essentials.gitbook.io/addons-documentation/components/finite-state-machine) for convenient management of player states.
+- States organized into sections (Ground, Air, Wall, Special) for scalability
+- Implementation of movement with [GodotEssentialsMotionComponent](https://godot-essentials.gitbook.io/addons-documentation/components/godot-essentials-motion-component)
+- Various states such as Idle, Run, Fall, Jump, Dash, Wall climb, Neutral, and Bounce.
+- A ledge climb detector utilizing raycasting to make the character climb up when it no longer collides
+- An approach to the duck technique, which allows for a slight movement adjustment when dashing straight against a wall.
+- A Dash reset mechanism similar to Celeste, where you return to the previous scenario upon entering a new one
 
-A simple template for making <i>tactical role-playing games</i> on [Godot Engine 4](https://godotengine.org/).
-This is not a fully functional game framework or a professional work, just a simple project made in my free time. 
-Anyways, feel free to use this sample in your own game. 
+# Guide
+For a comprehensive explanation of how Alys works, please refer to the [official godot 2d essentials documentation](https://godot-essentials.gitbook.io/addons-documentation/)
 
-- You can see all project's features on [YouTube](https://youtu.be/lJKWlLwYDZY).
-- Another demo from [Open Source Games](https://www.youtube.com/watch?v=-AY6KEdX_3E).
-- In case you are searching for some 2d projects, checkout [GDQuest](https://github.com/GDQuest/godot-2d-tactical-rpg-movement) or [TBS_GoDot](https://github.com/ja-brouil/TBS_GoDot)
-
-
-As mencioned before, this project uses [Godot Engine 4](https://godotengine.org/) (and was ported quite recently), so it will no longer support previous versions of the engine. If (for some reason) you still want to use an older version of Godot make sure to clone from the respective branch, but keep in mind that no new features will be added in the future.
-
-
-#### Features
-
-- Turn based plus grid movements
-- Each pawn can move and attack
-- Super basic (and stupid) enemy AI
-- Camera movements and rotations
-- Automatic battlegroud map recognition (req. Blender + Godot Export) [Here](./docs/tutorials/how-to-create-maps/README.md)
-- Controller Support
-
-[![asset-store](./docs/img/asset-store.png)](https://godotengine.org/asset-library/asset/1295)
-
-
-#### Preview
-
-![preview](./docs/img/preview.png)
-
-
-#### Special thanks
-
-- GDQuest
-- Tiny Legions
-- Miziziziz
-- TutsByKai
-- AdamCYounis
-- Almost every other guy at Godot's formus / StackOverflow
+# Resources
+- [Alys character](https://jobit91.itch.io/alys)
+- [Background desert mountains](https://szadiart.itch.io/background-desert-mountains)
+- [Smoke effects](https://bdragon1727.itch.io/free-smoke-fx-pixel-2)
