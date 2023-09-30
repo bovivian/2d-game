@@ -1,17 +1,12 @@
-<<<<<<< HEAD
-[gd_scene load_steps=11 format=3 uid="uid://df4i04ovpp6ja"]
-=======
-[gd_scene load_steps=12 format=3 uid="uid://df4i04ovpp6ja"]
->>>>>>> 925dbf2 (player change)
+[gd_scene load_steps=13 format=3 uid="uid://ddeqhdp2upnsk"]
 
 [ext_resource type="PackedScene" uid="uid://dh2kie4ol1mcg" path="res://scenes/player/player.tscn" id="1_c23e8"]
 [ext_resource type="PackedScene" uid="uid://lfgnqxme2dk4" path="res://scenes/background/background.tscn" id="2_ydwhs"]
 [ext_resource type="Texture2D" uid="uid://ccsm3uj5nnn4p" path="res://assets/tilesets/dungeon.png" id="3_wff8s"]
 [ext_resource type="PackedScene" uid="uid://k23e5x3fkpkn" path="res://scenes/enemies/slime/slime.tscn" id="4_om1wp"]
-[ext_resource type="PackedScene" uid="uid://dvh23477783n1" path="res://scenes/tv_1.tscn" id="5_f1mdh"]
+[ext_resource type="PackedScene" path="res://scenes/tv_1.tscn" id="5_f1mdh"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mmbqr"]
-load_path = "res://.godot/imported/penis.png-512fc4dd2121444fa8fdcf12a616dca4.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5u22"]
 texture = SubResource("CompressedTexture2D_mmbqr")
@@ -425,18 +420,6 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_wuxie")
 sources/0 = SubResource("TileSetAtlasSource_s5u22")
 
-[sub_resource type="GDScript" id="GDScript_6oa7w"]
-resource_name = "Timer"
-script/source = "extends Node2D
-
-var slime = preload(\"res://scenes/enemies/slime/slime.tscn\")
-
-func _on_timer_timeout():
-  var slimeTmp = slime.instantiate()
-  slimeTmp.position = Vector2(-100, 10)
-  add_child(slimeTmp)
-"
-
 [sub_resource type="GDScript" id="GDScript_h4wwc"]
 resource_name = "spawn"
 script/source = "extends Node2D
@@ -487,11 +470,7 @@ layer_0/tile_data = PackedInt32Array(2097192, 655361, 5, 2097193, 655361, 5, 209
 
 [node name="Enemies" type="Node2D" parent="."]
 position = Vector2(677, 490)
-<<<<<<< HEAD
 script = SubResource("GDScript_h4wwc")
-=======
-script = SubResource("GDScript_6oa7w")
->>>>>>> 925dbf2 (player change)
 
 [node name="Slime" parent="Enemies" instance=ExtResource("4_om1wp")]
 position = Vector2(-10, 0)
@@ -503,10 +482,7 @@ position = Vector2(438, 0)
 position = Vector2(1150, 0)
 
 [node name="Timer" type="Timer" parent="Enemies"]
-<<<<<<< HEAD
 wait_time = 5.0
-=======
->>>>>>> 925dbf2 (player change)
 one_shot = true
 autostart = true
 
@@ -527,10 +503,7 @@ theme_override_font_sizes/font_size = 28
 text = "Souls: 0"
 script = SubResource("GDScript_akkw3")
 
-<<<<<<< HEAD
 [node name="tv1" parent="." instance=ExtResource("5_f1mdh")]
 position = Vector2(232, 464)
 
-=======
->>>>>>> 925dbf2 (player change)
 [connection signal="timeout" from="Enemies/Timer" to="Enemies" method="_on_timer_timeout"]
