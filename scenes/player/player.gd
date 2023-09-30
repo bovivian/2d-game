@@ -86,7 +86,7 @@ func restart_game():
 	queue_free()
 	Game.playerHP = 3
 	Game.playerSouls = 0
-	get_tree().change_scene("res://scenes/menu/menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/menu/menu.tscn")
 
 func handle_game_inputs():
 	if Input.is_action_just_pressed("quick_save"):
