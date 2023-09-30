@@ -19,3 +19,6 @@ func load_game():
 			if current_line:
 				Game.playerHP = current_line["playerHP"]
 				Game.playerSouls = current_line["playerSouls"]
+
+func back_to_menu():
+	get_tree().change_scene_to_file("res://scenes/menu/menu.tscn")
