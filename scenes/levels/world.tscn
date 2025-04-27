@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://ddeqhdp2upnsk"]
+[gd_scene load_steps=14 format=3 uid="uid://ddeqhdp2upnsk"]
 
 [ext_resource type="PackedScene" uid="uid://dh2kie4ol1mcg" path="res://scenes/player/player.tscn" id="1_c23e8"]
 [ext_resource type="PackedScene" uid="uid://lfgnqxme2dk4" path="res://scenes/background/background.tscn" id="2_ydwhs"]
 [ext_resource type="Texture2D" uid="uid://ccsm3uj5nnn4p" path="res://assets/tilesets/dungeon.png" id="3_wff8s"]
 [ext_resource type="PackedScene" uid="uid://k23e5x3fkpkn" path="res://scenes/enemies/slime/slime.tscn" id="4_om1wp"]
 [ext_resource type="PackedScene" uid="uid://dvh23477783n1" path="res://scenes/tv_1.tscn" id="5_f1mdh"]
+[ext_resource type="Script" uid="uid://bplfp0cbd5ko1" path="res://addons/sound_manager/module/internal_scripts/SoundManager_config.gd" id="6_gy5pc"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mmbqr"]
 
@@ -241,5 +242,9 @@ offset_bottom = 103.0
 theme_override_font_sizes/font_size = 28
 text = "Souls: 0"
 script = SubResource("GDScript_akkw3")
+
+[node name="SoundManagerModule" type="Node" parent="."]
+script = ExtResource("6_gy5pc")
+metadata/_custom_type_script = "uid://bplfp0cbd5ko1"
 
 [connection signal="timeout" from="Enemies/Timer" to="Enemies" method="_on_timer_timeout"]

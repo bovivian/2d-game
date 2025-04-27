@@ -353,6 +353,11 @@ animations = [{
 "name": &"jump",
 "speed": 5.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bxy4r")
@@ -390,7 +395,7 @@ shape = SubResource("RectangleShape2D_irxqu")
 position = Vector2(0, -2.8)
 scale = Vector2(1.22427, 1.22031)
 sprite_frames = SubResource("SpriteFrames_m574l")
-animation = &"run"
+animation = &"new_animation"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.5, 1.5)
