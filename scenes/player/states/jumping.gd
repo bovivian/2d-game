@@ -5,7 +5,7 @@ func enter(previous_state_path: String, data := {}) -> void:
 	if player.sprite:
 		player.sprite.play("jump")
 	
-	SoundManager.play_bgm("res://assets/audio/jump.ogg")
+	SoundManager.play_sfx("res://assets/audio/jump.ogg")
 	
 	if previous_state_path == GLIDING:
 		player.velocity.y = -player.glide_jump_impulse
