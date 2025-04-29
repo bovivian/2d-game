@@ -2,8 +2,8 @@ extends PlayerState
 
 
 func enter(previous_state_path: String, data := {}) -> void:
-	if player.sprite:
-		player.sprite.play("fall")
+	if player.anim:
+		player.anim.play("fall")
 
 
 func physics_update(delta: float) -> void:

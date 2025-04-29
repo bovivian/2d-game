@@ -1,6 +1,6 @@
-[gd_scene load_steps=63 format=3 uid="uid://dh2kie4ol1mcg"]
+[gd_scene load_steps=57 format=3 uid="uid://dh2kie4ol1mcg"]
 
-[ext_resource type="Script" uid="uid://c4wk58qjtnnrl" path="res://scenes/player/player.gd" id="1_i7mhh"]
+[ext_resource type="Script" uid="uid://d3fqa8ko85huj" path="res://scenes/player/UltimatePlatformerController.gd" id="1_fcs02"]
 [ext_resource type="Texture2D" uid="uid://6km1lsaegn00" path="res://assets/player/new1/Attack_KG_1.png" id="2_t0h0u"]
 [ext_resource type="Texture2D" uid="uid://x1yxl6ec8a5i" path="res://assets/player/new1/Attack_KG_3.png" id="3_hy1yk"]
 [ext_resource type="Texture2D" uid="uid://cvexku4pbqvrv" path="res://assets/player/new1/Dying_KG_2.png" id="4_6grxv"]
@@ -9,12 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://dqt65i2ny2j75" path="res://assets/player/new1/Idle_KG_2.png" id="7_qhtqg"]
 [ext_resource type="Texture2D" uid="uid://bjmyibgjqrlr5" path="res://assets/player/new1/Jump_KG_1.png" id="8_4nk4w"]
 [ext_resource type="Texture2D" uid="uid://clbr42oe72r76" path="res://assets/player/new1/Walking_KG_2.png" id="9_wwgxr"]
-[ext_resource type="Script" uid="uid://bgvk4vce5s4iu" path="res://scenes/player/state_machine.gd" id="10_fcs02"]
-[ext_resource type="Script" uid="uid://ba2ixapdn22vo" path="res://scenes/player/states/falling.gd" id="11_myrg7"]
-[ext_resource type="Script" uid="uid://dhlnuodiyi42u" path="res://scenes/player/states/gliding.gd" id="12_kvlxm"]
-[ext_resource type="Script" uid="uid://dbe7glqr2en8m" path="res://scenes/player/states/idle.gd" id="13_uf5tr"]
-[ext_resource type="Script" uid="uid://cxlu0jvb3rk35" path="res://scenes/player/states/jumping.gd" id="14_lgqa7"]
-[ext_resource type="Script" uid="uid://c6j4y35mk7ndp" path="res://scenes/player/states/running.gd" id="15_8ydkj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_irxqu"]
 size = Vector2(48, 72.5)
@@ -293,7 +287,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_ndnb3")
 }],
 "loop": true,
-"name": &"fall",
+"name": &"falling",
 "speed": 5.0
 }, {
 "frames": [{
@@ -353,11 +347,6 @@ animations = [{
 "name": &"jump",
 "speed": 5.0
 }, {
-"frames": [],
-"loop": true,
-"name": &"new_animation",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bxy4r")
@@ -385,8 +374,19 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_i7mhh")
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("PlayerSprite", "PlayerCollider")]
+script = ExtResource("1_fcs02")
+PlayerSprite = NodePath("AnimatedSprite2D")
+PlayerCollider = NodePath("CollisionShape2D")
+maxSpeed = 300.0
+jumpHeight = 3.0
+jumps = 2
+dashType = 1
+dashLength = 3.0
+run = true
+jump = true
+idle = true
+falling = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_irxqu")
@@ -395,7 +395,7 @@ shape = SubResource("RectangleShape2D_irxqu")
 position = Vector2(0, -2.8)
 scale = Vector2(1.22427, 1.22031)
 sprite_frames = SubResource("SpriteFrames_m574l")
-animation = &"new_animation"
+animation = &"hurt"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.5, 1.5)
@@ -405,21 +405,15 @@ drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 
 [node name="StateMachine" type="Node" parent="."]
-script = ExtResource("10_fcs02")
 
 [node name="Falling" type="Node" parent="StateMachine"]
-script = ExtResource("11_myrg7")
 
 [node name="Gliding" type="Node" parent="StateMachine"]
-script = ExtResource("12_kvlxm")
 
 [node name="Idle" type="Node" parent="StateMachine"]
-script = ExtResource("13_uf5tr")
 
 [node name="Jumping" type="Node" parent="StateMachine"]
-script = ExtResource("14_lgqa7")
 
 [node name="Running" type="Node" parent="StateMachine"]
-script = ExtResource("15_8ydkj")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

@@ -2,8 +2,8 @@ extends PlayerState
 
 
 func enter(previous_state_path: String, data := {}) -> void:
-	if player.sprite:
-		player.sprite.play("jump")
+	if player.anim:
+		player.anim.play("jump")
 	
 	SoundManager.play_sfx("res://assets/audio/jump.ogg")
 	

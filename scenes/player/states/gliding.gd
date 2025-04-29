@@ -2,8 +2,8 @@ extends PlayerState
 
 
 func enter(previous_state_path: String, data := {}) -> void:
-	if player.sprite:
-		player.sprite.play("death")
+	if player.anim:
+		player.anim.play("death")
 	player.velocity.y = max(player.velocity.y, 0.0)
 
 
